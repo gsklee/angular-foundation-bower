@@ -826,6 +826,10 @@ angular.module('mm.foundation.modal', ['mm.foundation.transition'])
                 });
 
                 ctrlInstance = $controller(modalOptions.controller, ctrlLocals);
+                
+                if (modalOptions.controllerAs) {
+                  ctrlLocals.$scope[modalOptions.controllerAs] = ctrlInstance;
+                }
               }
 
               $modalStack.open(modalInstance, {
